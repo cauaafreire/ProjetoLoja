@@ -22,7 +22,7 @@ namespace ProjetoLoja2dsa.Controllers
         }
 
         //INTERFACE É UMA REPRESENTAÇAO DO RESULTADO (TELA)
-        [HttpGet]
+       // [HttpGet]
         public IActionResult Login()
         {
             //RETORNA A PAGINA INDEX
@@ -34,9 +34,9 @@ namespace ProjetoLoja2dsa.Controllers
         {
             var usuario = _usuarioRepositorio.ObterUsuario(email);
 
-            if (usuario != null && usuario.Senha != senha)
+            if (usuario != null && usuario.Senha == senha)
             {
-                return RedirectToAction("Index", "Cliente");
+                return RedirectToAction("Index","Home");
             }
             ModelState.AddModelError("", "Email / senha Inválidos");
 

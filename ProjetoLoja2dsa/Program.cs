@@ -1,7 +1,12 @@
+using ProjetoLoja2dsa.Repositorio;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// ADICIONANDO A INJEÇAÃO DE DEPENDENCIA 
+builder.Services.AddScoped<UsuarioRepositorio>(); //repositorio do usuario
 
 var app = builder.Build();
 
