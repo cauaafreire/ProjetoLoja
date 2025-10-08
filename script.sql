@@ -21,5 +21,3 @@ CREATE TABLE Cliente (
 -- CONSULTANDO AS TABELAS DO BANCO DE DADOS
 SELECT * FROM Usuario;
 SELECT * FROM Cliente;
-
-drop database bdloja2dsa; 
