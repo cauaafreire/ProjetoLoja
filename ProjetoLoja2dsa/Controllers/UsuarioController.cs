@@ -1,6 +1,8 @@
 ﻿// importa as bibliotecas que serao utilzaads no projeto
 using Microsoft.AspNetCore.Mvc;
+using ProjetoLoja2dsa.Models;
 using ProjetoLoja2dsa.Repositorio;
+using ProjetoLoja2dsa.Models;
 
 // define o nome e onde a classe esta usuarioController esta utilizada
 // namespace ajuda a organizar o codigo e evitar conflitos
@@ -43,6 +45,23 @@ namespace ProjetoLoja2dsa.Controllers
 
             //RETORNA A PAGINA LOGIN
             return View();
+        }
+
+        //CADASTRO DO USUARIO 
+        public IActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Cadastro(Usuario usuario)
+        {
+            if (ModelState.IsValid) 
+            {
+                _usuarioRepositorio.AdicionarUsuario(usuario);
+                return RedirectToAction("Login");
+            }
+            return View(usuario);
         }
     }
 }
