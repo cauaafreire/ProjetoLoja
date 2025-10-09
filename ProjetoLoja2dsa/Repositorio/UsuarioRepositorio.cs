@@ -15,11 +15,13 @@ namespace ProjetoLoja2dsa.Repositorio
         {
             using (var db = new MySqlConnection(_conexaoMySQL))
             {
+                db.Open();
                 var cmd = db.CreateCommand();
-                cmd.CommandText = "INSERT INTO Usuario(email,senha) values (@email, @senha)";
-                cmd.Parameters.AddWithValue("@email", usuario.Email);
-                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                cmd.CommandText = "INSERT INTO Usuario (email,senha) values (@email,@senha)";
+                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = usuario.Email;
+                cmd.Parameters.Add("@senha", MySqlDbType.VarChar).Value = usuario.Senha;
                 cmd.ExecuteNonQuery();
+                db.Close();
             }
         }
 

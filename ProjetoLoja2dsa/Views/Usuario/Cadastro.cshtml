@@ -3,14 +3,14 @@
 @{
 	ViewData["Title"] = "Cadastro";
 }
-<fotm asp-action="Cadastro" method="post">
-	<div>
-		<label>Email</label>
-		<input type="email" required />
-	</div>
-	<div>
-		<label>Senha</label>
-		<input type="password" required />
-	</div>
-	<button>Cadastrar</button>
-</fotm>
+<form asp-action="Cadastro" method="post">
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required />
+    </div>
+    <div>
+        <label>Senha:</label>
+        <input type="password" name="senha" required />
+    </div>
+	<button type ="submit"> Cadastrar </button>
+</form>
